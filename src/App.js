@@ -1,12 +1,13 @@
 // app.js
 import './App.css';
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Navbar from './Componants/Navbar';
 import News from './Componants/News';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoadingBar from 'react-top-loading-bar';
 
-export default class App extends Component {
+function  App () {
+  const[progress, setProgress] = useState([]);
   pageSize = 5;
   apiKey = process.env.REACT_APP_NEWS_API;
 
@@ -18,7 +19,6 @@ export default class App extends Component {
     this.setState({ progress: progress });
   };
 
-  render() {
     return (
       <div>
         <BrowserRouter>
@@ -37,6 +37,6 @@ export default class App extends Component {
         </BrowserRouter>
       </div>
     );
-  }
-}
 
+}
+export default App;
